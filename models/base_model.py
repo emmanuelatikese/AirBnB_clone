@@ -8,12 +8,22 @@ from uuid import uuid4 as u
 class BaseModel:
     """This class containes a list of attributes"""
 
-    def __init__(self, name='', my_number=None):
-        self.id = str(u())
-        self.my_number = my_number
-        self.name = name
-        self.created_at = dt.utcnow()
-        self.updated_at = dt.utcnow()
+    def __init__(self, *args, **kwargs):
+        dt_fmt = "%Y-%m-%dT%H:%M:%S.%f"
+        if kwargs:
+            for k, v in kwargs.items():
+                if k == "created_at":
+                    self.created_at = dt.strptime(v, dt_fmt)
+                elif k == "updated_at":
+                    self.updated_at = dt.strptime(v, dt_fmt)
+                elif k == "__class__":
+                    pass
+                else:
+                    setattr(self, k, v)
+        else:
+            self.id = str(u())
+            self.created_at = dt.utcnow()
+            self.updated_at = dt.utcnow()
 
     def __str__(self):
         return "[{}] ({}) {}".format(self.__class__.__name__,

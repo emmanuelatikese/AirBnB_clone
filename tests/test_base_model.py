@@ -36,3 +36,16 @@ class Testbase_models(unittest.TestCase):
         a.my_number = 23
         c = a.to_dict()
         return self.assertNotEqual(c, None)
+
+    def test_id(self):
+        a = BaseModel()
+        a.name = "emma"
+        a.my_number = 34
+        return self.assertEqual(type(a.id), str)
+
+    def test_date(self):
+        a = BaseModel()
+        a.name = "emma"
+        a.my_number = 43
+        return self.assertEqual(type(a.created_at),
+                                type(a.updated_at))
