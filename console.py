@@ -91,23 +91,22 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
             else:
                 ob = storage.all()
-                ans = None
-                for k, x in ob.items():
-                    if x.id == l[1]:
-                        ans = x
-                        print("found")
-                if ans != None:
-                    dic = {}
+                k = "{}.{}".format(l[0], l[1])
+                print("This")
+                print(ob[k].__dict__)
+                if ob[k]:
                     if l[3]:
                         if l[3] == "first_name" or l[3] == "email":
+                            print("we on this ")
                             if l[4]:
-                                dic[l[3]] = l[4]
-                                ans(dic)
+                                ob[k].__dict__[l[3]] = l[4]
+                                print(ob.__dict__[l[3]])
                                 storage.save()
                             else:
                                 print("** value missing **")
                     else:
                         print("** attribute name missing **")
+                    
                 else:
                     print("** no instance found **")
         else:
