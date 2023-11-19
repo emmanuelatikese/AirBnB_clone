@@ -1,8 +1,22 @@
 
         header{
-            	background-color:#FF0000;
+            	background-color:#CCCCCC;
                 height:70px;
                 width:100%;
                 position:static;
                 top:0;
+                border-bottom: 1px solid #CCCCCC;
+                display:flex;
+                flex-wrap: wrap;
+
+        }
+
+        .logo-wrapper{
+                background-image: url("../images/logo.png");
+                background-repeat: no-repeat;
+                margin-left:20px;
+                margin-top:auto;
+                margin-bottom:auto;
+                width:140px;
+                height: 60px;
         }
