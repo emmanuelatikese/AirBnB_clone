@@ -53,7 +53,10 @@ button:hover{
 
 }
 
-
+.amenities ul{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
 .locations{
     border-right:1px solid #DDDDDD;
@@ -73,3 +76,4 @@ h4{
     font-size: 14px;
     margin-top: -18px;
 }
+
