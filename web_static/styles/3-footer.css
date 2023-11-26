@@ -4,7 +4,7 @@
                     width:100%;
                     display:flex;
                     justify-content:center;
-                    position:absolute;
-                    bottom:0;
                     border-top:1px solid #CCCCCC;
+                    position:fixed;
+                    bottom:0;
         }
