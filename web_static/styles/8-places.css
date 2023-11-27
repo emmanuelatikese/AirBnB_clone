@@ -54,7 +54,7 @@ article:nth-child(){
     height: 60px;
     font-size: 30px;
     position:relative;
-    top:-30%;
+    top:-15%;
     left:80%;
     padding:10px;
 
@@ -76,23 +76,37 @@ article:nth-child(){
 .img-wrapper{
     width:100px;
     height: 100px;
-    
 }
 
-.pic1{
+.max_guest{
     background-image: url("../images/icon_group.png");
     background-repeat: no-repeat;
 }
 
-.pic2{
+.number_rooms{
     background-image: url("../images/icon_bed.png");
     background-repeat: no-repeat;   
 }
-.pic3{
+.number_bathrooms{
     background-image: url("../images/icon_bath.png");
     background-repeat: no-repeat;
 }
-p{
+.information h4{
     position:relative;
-    top:30%;
+    top:70%;
+}
+
+.user h3:nth-child(2){
+    font-weight: normal;
+}
+
+.user{
+    display: flex;
+    flex-direction: row;
+    gap:6px;
+}
+
+.description{
+    width: 400px;
+    height: 200px;
 }
