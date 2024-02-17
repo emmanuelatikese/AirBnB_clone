@@ -24,7 +24,7 @@ class FileStorage:
     def save(self):
         if self.__objects:
             new_obj = {}
-            for k in self.__objects:
+            for k in self.__objects.keys():
                 new_obj[k] = self.__objects[k].to_dict()
             with open(self.__file_path, "w", encoding="utf-8") as f:
                 js.dump(new_obj, f)

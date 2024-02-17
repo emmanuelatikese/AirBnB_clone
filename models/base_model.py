@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 from datetime import datetime as dt
 from uuid import uuid4 as u
-import models
 
 """this file contains a class models to work with"""
 
@@ -22,10 +21,11 @@ class BaseModel:
                 else:
                     setattr(self, k, v)
         else:
+            from models import storage
             self.id = str(u())
             self.created_at = dt.utcnow()
             self.updated_at = dt.utcnow()
-            models.storage.new(self)
+            storage.new(self)
 
     def __str__(self):
         return "[{}] ({}) {}".format(self.__class__.__name__,
@@ -33,7 +33,8 @@ class BaseModel:
 
     def save(self):
         self.updated_at = dt.utcnow()
-        models.storage.save()
+        from models import storage
+        storage.save()
 
     def to_dict(self):
         new_dict = {}
