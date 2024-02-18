@@ -5,6 +5,7 @@ from models import storage
 
 """This is the console file for the python terminal"""
 
+
 class HBNBCommand(cmd.Cmd):
     """This function start"""
     prompt = "(hbnb) "
@@ -43,19 +44,16 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
                 else:
                     print(ans)
-                        
         else:
             print("** class doesn't exist **")
-
-
 
     def do_all(self, args):
         """This output all models"""
         if args == "BaseModel":
-            l, ob = [], storage.all()
+            ln, ob = [], storage.all()
             for k, v in ob.items():
-                l.append('{}'.format(v))
-            print(l)
+                ln.append('{}'.format(v))
+            print(ln)
         else:
             print("** class doesn't exit **")
 
@@ -82,12 +80,11 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, *args):
-        l = args[0].split(" ")
-        print(l)
+        le = args[0].split(" ")
         if not l[0] or l[0] == " ":
             print("** class name missing **")
-        elif l[0] == "BaseModel":
-            if len(l) == 1:
+        elif le[0] == "BaseModel":
+            if len(le) == 1:
                 print("** instance id missing **")
             else:
                 ob = storage.all()
@@ -106,11 +103,11 @@ class HBNBCommand(cmd.Cmd):
                                 print("** value missing **")
                     else:
                         print("** attribute name missing **")
-                    
                 else:
                     print("** no instance found **")
         else:
             print("** class doesn't exist **")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
