@@ -35,5 +35,5 @@ class FileStorage:
                 __obj = js.load(f)
                 for k, v in __obj.items():
                     self.__objects[k] = BaseModel(v)
-        except:
+        except e:
             pass
