@@ -33,7 +33,9 @@ class FileStorage:
         if path.exists(self.__file_path):
             with open(self.__file_path, "r") as f:
                 __obj = js.load(f)
-                for k, v in __obj.items():
-                    self.__objects[k] = BaseModel(v)
+                for v in __obj.values():
+                    __new = "{}(**v)".format(v["__class__"])
+                    __ob = eval(__new)
+                    self.new(__ob)
         else:
             pass
