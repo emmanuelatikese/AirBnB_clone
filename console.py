@@ -13,6 +13,14 @@ class HBNBCommand(cmd.Cmd):
         '''This quits the command line'''
         return True
 
+    def do_EOF(self, *arg):
+        '''This ends everything'''
+        return True
+
+    def emptyline(self):
+        ''' this literally does nothing'''
+        pass
+
     def do_create(self, *arg):
         '''This create'''
         _str = "BaseModel"
