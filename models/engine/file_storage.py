@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import json as js
-import os
+from os import path
 from models.base_model import BaseModel
 
 """This file contains the class file storage for storing dict  in json file"""
@@ -30,10 +30,10 @@ class FileStorage:
                 js.dump(new_obj, f)
 
     def reload(self):
-        try:
+        if path.exists(self.__file_path):
             with open(self.__file_path, "r") as f:
                 __obj = js.load(f)
                 for k, v in __obj.items():
                     self.__objects[k] = BaseModel(v)
-        except e:
+        else:
             pass
